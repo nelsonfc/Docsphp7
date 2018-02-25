@@ -112,8 +112,8 @@
     <section>
         <div class="panel panel-primary">
             <div class="panel-heading"><b style="font-size: 18px">Formulario</b>
-                <input type="button" id="btnAdd" value="Agregar Fecha"/>
-                <input type="button" id="btnDel" value="Remover Fecha" style="background-color: red"/>
+                <input class="btn2" type="button" id="btnAdd" value="Agregar Fecha"/>
+                <input class="btn2" type="button" id="btnDel" value="Remover Fecha" style="background-color: red"/>
             </div>
             <div class="panel-body">
 
@@ -150,7 +150,7 @@
                     </fieldset>
 
                     <div class="col-md-6">
-                        <input id="enviar" type="button" value="enviar">
+                        <input class="btn1" id="enviar" type="button" value="enviar">
                     </div>
 
 
