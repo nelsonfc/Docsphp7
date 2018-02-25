@@ -33,6 +33,39 @@
             <div class="panel-heading"><b style="font-size: 18px">Formulario</b></div>
             <div class="panel-body">
 
+                <form id="frm1">
+                    <fieldset>
+                        <div class="col-md-6">
+                            Fecha 1: <input type="date" name="fecha1">
+                        </div>
+                        <div class="col-md-6">
+                            Numero 1: <input type="number" name="numero1">
+                        </div>
+                        <div class="col-md-6">
+                            Fecha 2: <input type="date" name="fecha2">
+                        </div>
+                        <div class="col-md-6">
+                            Numero 2: <input type="number" name="numero2">
+                        </div>
+                        <div class="col-md-6">
+                            Fecha 3: <input type="date" name="fecha3">
+                        </div>
+                        <div class="col-md-6">
+                            Numero 3: <input type="number" name="numero3">
+                        </div>
+                        <div class="col-md-6">
+                            Fecha 4: <input type="date" name="fecha4">
+                        </div>
+                        <div class="col-md-6">
+                            Numero 4: <input type="number" name="numero4">
+                        </div>
+
+                        <div class="col-md-6">
+                            <input id="enviar" type="button" value="enviar">
+                        </div>
+
+                    </fieldset>
+                </form>
 
             </div>
         </div>
