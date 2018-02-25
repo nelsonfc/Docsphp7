@@ -70,13 +70,18 @@ for($i=0; $i < count($datos); $i +=2){
         array_push($fechasoriginales, date('d/m/Y', strtotime($fecha)));
         //agregamos una funcion que calcule los dias
         $nuevafecha = calcular($fecha, $numero);
+        array_push($arreglofechas, $nuevafecha);
+        array_push($arreglodias, $numero);
     }
 
 }
 
-if($contadorErrores == 0){
-
+if($errorfecha == true && $contadorErrores ==0){
+    echo json_encode("fechaerronea");
 }else {
-
-    echo json_encode("error");
+    if ($contadorErrores == 0) {
+        echo json_encode([$fechasoriginales,$arreglodias,$arreglofechas]);
+    } else {
+        echo json_encode("error");
+    }
 }
