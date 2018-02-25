@@ -25,8 +25,11 @@
 
         $(document).ready(function () {
 
-            $("#enviar").click(function () {
 
+            $("#enviar").click(function () {
+                var mostrardatos = $("<p>Error una de las fechas es menor a la anterior</p>");
+
+                $("#resp").empty();
                 var datos = $("#frm1").serializeArray();
 
                 $.ajax({
@@ -37,14 +40,36 @@
                     dataType: "json",
 
                     success: function (data) {
-
-                        console.log(data);
+        //valida que las fechas no sean vayan de menor a mayor
+                       if(data === 'fechaerronea'){
+                           $('#panel').show("slow");
+                           var mostrardatos = $("<p>Error una de las fechas es menor a la anterior</p>")
+                           mostrardatos.appendTo("#resp");
+                       }else{
+                           if(data === 'error'){
+                               $('#panel').show("slow");
+                               var mostrardatos = $("<p>Faltan campos del formulario por llenar</p>")
+                               mostrardatos.appendTo("#resp");
+                           }else{
+                               //mostramos los datos dado que supera la validacion del backend
+                               $('#panel').show("slow");
+                                    for(i=0; i<data[0].length; i++){
+                                        var mostrardatos = $("<p>fecha "+(i+1)+": "+data[0][i]+ "</p><br> <p>numero"+(i+1)+":"+data[1][i]+
+                                        "</p><br><p>fecha calculada "+(i+1)+": "+data[2][i]+"</p><br>");
+                                         mostrardatos.appendTo("#resp");
+                                    }
+                           }
+                       }
 
                     },
                     error: function (data) {
                         console.log(data);
 
                     }
+
+                }).done(function (datos) {
+
+                    console.log("Datos de done :"+datos);
 
                 })
 
@@ -138,10 +163,10 @@
 
     <!-- este section se utilizara para mostrar los resultados -->
     <section>
-        <div id="panel" class="panel panel-success">
+        <div id="panel" class="panel panel-success" style="display: none">
             <div class="panel-heading">Resultados</div>
             <div class="panel-body">
-
+                <div id="resp"></div>
             </div>
         </div>
     </section>
