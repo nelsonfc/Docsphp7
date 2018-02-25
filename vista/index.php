@@ -20,6 +20,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#enviar").click(function () {
+
+                var datos = $("#frm1").serializeArray();
+
+                $.ajax({
+
+                    type:"POST",
+                    url:"..controlador/controlador.php",
+                    data: {"datos":datos},
+                    dataType: "json",
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                    },
+                    error: function (data) {
+                        console.log(data);
+
+                    }
+
+                })
+
+            })
+
+        });
+
+    </script>
 </head>
 
 <body>
