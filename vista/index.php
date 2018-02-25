@@ -31,9 +31,9 @@
 
                 $.ajax({
 
-                    type:"POST",
-                    url:"../controlador/controlador.php",
-                    data: {"datos":datos},
+                    type: "POST",
+                    url: "../controlador/controlador.php",
+                    data: {"datos": datos},
                     dataType: "json",
 
                     success: function (data) {
@@ -47,6 +47,20 @@
                     }
 
                 })
+
+            });
+            var i = 5;
+            $('#btnAdd').click(function () {
+
+                var fechadinamica = $('<div id="elemento' + i + '"> <div class="col-md-6">\n' +
+                    '                            Fecha ' + i + ':\n' +
+                    '                            <input type="date" name="fecha' + i + '">\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-md-6">\n' +
+                    '                            Numero ' + i + ': <input type="number" name="numero' + i + '"><br><br>\n' +
+                    '                        </div></div>');
+                fechadinamica.appendTo("#agregar");
+                i +=1;
 
             })
 
@@ -63,7 +77,10 @@
     <!-- este section se utilizara para mostrar el formulario -->
     <section>
         <div class="panel panel-primary">
-            <div class="panel-heading"><b style="font-size: 18px">Formulario</b></div>
+            <div class="panel-heading"><b style="font-size: 18px">Formulario</b>
+                <input type="button" id="btnAdd" value="Agregar Fecha"/>
+                <input type="button" id="btnDel" value="Remover Fecha" style="background-color: red"/>
+            </div>
             <div class="panel-body">
 
                 <form id="frm1">
@@ -92,12 +109,17 @@
                         <div class="col-md-6">
                             Numero 4: <input type="number" name="numero4">
                         </div>
+                    </fieldset>
 
-                        <div class="col-md-6">
-                            <input id="enviar" type="button" value="enviar">
-                        </div>
+                    <fieldset id="agregar">
 
                     </fieldset>
+
+                    <div class="col-md-6">
+                        <input id="enviar" type="button" value="enviar">
+                    </div>
+
+
                 </form>
 
             </div>
