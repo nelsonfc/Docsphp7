@@ -62,7 +62,16 @@
                 fechadinamica.appendTo("#agregar");
                 i +=1;
 
-            })
+            });
+
+            $('#btnDel').click(function () {
+
+                if(i > 5){
+                    $("#elemento" + (i-1)).remove();
+                    i -= 1;
+                }
+
+            });
 
         });
 
