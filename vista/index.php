@@ -123,28 +123,27 @@
                             Fecha 1: <input type="date" name="fecha1">
                         </div>
                         <div class="col-md-6">
-                            Numero 1: <input type="number" name="numero1">
+                            Numero 1: <input type="number" name="numero1"><br><br>
                         </div>
                         <div class="col-md-6">
                             Fecha 2: <input type="date" name="fecha2">
                         </div>
                         <div class="col-md-6">
-                            Numero 2: <input type="number" name="numero2">
+                            Numero 2: <input type="number" name="numero2"><br><br>
                         </div>
                         <div class="col-md-6">
                             Fecha 3: <input type="date" name="fecha3">
                         </div>
                         <div class="col-md-6">
-                            Numero 3: <input type="number" name="numero3">
+                            Numero 3: <input type="number" name="numero3"><br><br>
                         </div>
                         <div class="col-md-6">
                             Fecha 4: <input type="date" name="fecha4">
                         </div>
                         <div class="col-md-6">
-                            Numero 4: <input type="number" name="numero4">
+                            Numero 4: <input type="number" name="numero4"><br><br>
                         </div>
                     </fieldset>
-
                     <fieldset id="agregar">
 
                     </fieldset>
