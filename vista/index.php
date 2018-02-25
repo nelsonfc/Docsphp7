@@ -54,7 +54,7 @@
                                //mostramos los datos dado que supera la validacion del backend
                                $('#panel').show("slow");
                                     for(i=0; i<data[0].length; i++){
-                                        var mostrardatos = $("<p>fecha "+(i+1)+": "+data[0][i]+ "</p><br> <p>numero"+(i+1)+":"+data[1][i]+
+                                        var mostrardatos = $("<p>fecha "+(i+1)+": "+data[0][i]+ "</p><br> <p>numero "+(i+1)+": "+data[1][i]+
                                         "</p><br><p>fecha calculada "+(i+1)+": "+data[2][i]+"</p><br>");
                                          mostrardatos.appendTo("#resp");
                                     }
@@ -104,10 +104,14 @@
 </head>
 
 <body>
+
 <div class="col-md-12">
+    <br>
     <header>
-        <h1>Tionvel</h1>
-    </header>
+        <img src="../tionvel.png">
+
+    </header><br>
+    
     <!-- este section se utilizara para mostrar el formulario -->
     <section>
         <div class="panel panel-primary">

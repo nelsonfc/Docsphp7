@@ -14,8 +14,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vista/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="121" column="44" lean-forward="false" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
+            <state relative-caret-position="276">
+              <caret line="113" column="4" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#b#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="estilo.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/estilo/estilo.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="463">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -150,12 +150,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519591237579</updated>
-      <workItem from="1519591238813" duration="9190000" />
+      <workItem from="1519591238813" duration="10049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9190000" />
+    <option name="totallyTimeSpent" value="10049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -202,16 +202,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/estilo/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="463">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vista/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="121" column="44" lean-forward="false" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
+        <state relative-caret-position="276">
+          <caret line="113" column="4" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#b#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
