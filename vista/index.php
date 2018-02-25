@@ -32,7 +32,7 @@
                 $.ajax({
 
                     type:"POST",
-                    url:"..controlador/controlador.php",
+                    url:"../controlador/controlador.php",
                     data: {"datos":datos},
                     dataType: "json",
 
