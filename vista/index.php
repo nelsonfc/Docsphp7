@@ -14,66 +14,18 @@
     <meta charset="UTF-8">
     <!-- importamos bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- importamos la hoja de estilos -->
     <link REL=stylesheet HREF="../estilo/estilo.css" TYPE="text/css" MEDIA=screen>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="../bootbox.min.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
 
-
-            $("#enviar").click(function () {
-                var mostrardatos = $("<p>Error una de las fechas es menor a la anterior</p>");
-
-                $("#resp").empty();
-                var datos = $("#frm1").serializeArray();
-
-                $.ajax({
-
-                    type: "POST",
-                    url: "../controlador/controlador.php",
-                    data: {"datos": datos},
-                    dataType: "json",
-
-                    success: function (data) {
-        //valida que las fechas no sean vayan de menor a mayor
-                       if(data === 'fechaerronea'){
-                           $('#panel').show("slow");
-                           var mostrardatos = $("<p>Error una de las fechas es menor a la anterior</p>")
-                           mostrardatos.appendTo("#resp");
-                       }else{
-                           if(data === 'error'){
-                               $('#panel').show("slow");
-                               var mostrardatos = $("<p>Faltan campos del formulario por llenar</p>")
-                               mostrardatos.appendTo("#resp");
-                           }else{
-                               //mostramos los datos dado que supera la validacion del backend
-                               $('#panel').show("slow");
-                                    for(i=0; i<data[0].length; i++){
-                                        var mostrardatos = $("<p>fecha "+(i+1)+": "+data[0][i]+ "</p><br> <p>numero "+(i+1)+": "+data[1][i]+
-                                        "</p><br><p>fecha calculada "+(i+1)+": "+data[2][i]+"</p><br>");
-                                         mostrardatos.appendTo("#resp");
-                                    }
-                           }
-                       }
-
-                    },
-                    error: function (data) {
-                        console.log(data);
-
-                    }
-
-                }).done(function (datos) {
-
-                    console.log("Datos de done :"+datos);
-
-                })
-
-            });
             var i = 5;
             $('#btnAdd').click(function () {
 
@@ -85,20 +37,104 @@
                     '                            Numero ' + i + ': <input type="number" name="numero' + i + '"><br><br>\n' +
                     '                        </div></div>');
                 fechadinamica.appendTo("#agregar");
-                i +=1;
+                i += 1;
 
             });
+            $("#enviar").click(function () {
+                    var envio = 0;
+                    var u = (i);
+                    $("#resp").empty();
+
+                    for (j = 1; j < u; j++) {
+
+                        var elementofecha = document.getElementsByName("numero" + j)[0].value;
+
+                        if (elementofecha === '') {
+                            $('#panel').hide("slow");
+                            envio = 2;
+                            bootbox.alert({
+                                message: "el campo numero " + j + " no puede nulo",
+                                className: 'bb-alternate-modal'
+
+                            });
+                            break;
+
+                        } else {
+                            if (elementofecha <= 0) {
+                                $('#panel').hide("slow");
+                                envio = 2;
+                                bootbox.alert({
+                                    message: "el campo numero " + j + " no puede ser menor a 1",
+                                    className: 'bb-alternate-modal'
+                                });
+                                break;
+                            }
+                        }
+                    }
+
+
+                    var datos = $("#frm1").serializeArray();
+                    if (envio == 0) {
+                        $.ajax({
+
+                            type: "POST",
+                            url: "../controlador/controlador.php",
+                            data: {"datos": datos},
+                            dataType: "json",
+
+                            success: function (data) {
+                                //valida que las fechas no sean vayan de menor a mayor
+                                if (data === 'fechaerronea') {
+                                    $('#panel').show("slow");
+                                    var mostrardatos = $("<p>Error una de las fechas es menor a la anterior</p>")
+                                    mostrardatos.appendTo("#resp");
+                                } else {
+                                    if (data === 'error') {
+                                        $('#panel').show("slow");
+                                        var mostrardatos = $("<p>Faltan campos del formulario por llenar</p>")
+                                        mostrardatos.appendTo("#resp");
+                                    } else {
+                                        //mostramos los datos dado que supera la validacion del backend
+                                        $('#panel').show("slow");
+                                        for (i = 0; i < data[0].length; i++) {
+                                            var mostrardatos = $("<p>fecha " + (i + 1) + ": " + data[0][i] + "</p><br> <p>numero " + (i + 1) + ": " + data[1][i] +
+                                                "</p><br><p>fecha calculada " + (i + 1) + ": " + data[2][i] + "</p><br>");
+                                            mostrardatos.appendTo("#resp");
+
+                                        }
+                                        i +=1;
+                                    }
+                                }
+
+                            },
+                            error: function (data) {
+                                console.log(data);
+
+                            }
+
+                        }).done(function (datos) {
+
+                            console.log("Datos de done :" + datos);
+
+                        });
+                    }
+                }
+            );
+
+
+
 
             $('#btnDel').click(function () {
 
-                if(i > 5){
-                    $("#elemento" + (i-1)).remove();
+                if (i > 5) {
+                    $("#elemento" + (i - 1)).remove();
                     i -= 1;
                 }
 
             });
 
-        });
+        })
+        ;
 
     </script>
 </head>
@@ -110,8 +146,9 @@
     <header>
         <img src="../tionvel.png">
 
-    </header><br>
-    
+    </header>
+    <br>
+
     <!-- este section se utilizara para mostrar el formulario -->
     <section>
         <div class="panel panel-primary">
@@ -127,7 +164,7 @@
                             Fecha 1: <input type="date" name="fecha1">
                         </div>
                         <div class="col-md-6">
-                            Numero 1: <input type="number" name="numero1"><br><br>
+                            Numero 1: <input type="number" name="numero1" id="numero1"><br><br>
                         </div>
                         <div class="col-md-6">
                             Fecha 2: <input type="date" name="fecha2">
