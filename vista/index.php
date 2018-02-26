@@ -52,11 +52,9 @@
                         if (elementofecha === '') {
                             $('#panel').hide("slow");
                             envio = 2;
-                            bootbox.alert({
-                                message: "el campo numero " + j + " no puede nulo",
-                                className: 'bb-alternate-modal'
+                            var mostrardatos = $("<p>El campo numero " + j + " no puede nulo</p>")
+                            mostrardatos.appendTo("#resp");
 
-                            });
                             break;
 
                         } else {
@@ -64,10 +62,9 @@
                             if (elementofecha <= 0) {
                                 $('#panel').hide("slow");
                                 envio = 2;
-                                bootbox.alert({
-                                    message: "el campo numero " + j + " no puede ser menor a 1",
-                                    className: 'bb-alternate-modal'
-                                });
+                                var mostrardatos = $("<p>El campo numero " + j + " no puede ser menor a 1</p>")
+                                mostrardatos.appendTo("#resp");
+
                                 break;
                             }
                         }
@@ -92,14 +89,14 @@
                                 } else {
                                     if (data === 'error') {
                                         $('#panel').show("slow");
-                                        var mostrardatos = $("<p>Faltan campos del formulario por llenar</p>")
+                                        var mostrardatos = $("<p>Debe ingresar todos los campos de fecha</p>")
                                         mostrardatos.appendTo("#resp");
                                     } else {
                                         //mostramos los datos dado que supera la validacion del backend
                                         $('#panel').show("slow");
                                         for (i = 0; i < data[0].length; i++) {
-                                            var mostrardatos = $("<p>fecha " + (i + 1) + ": " + data[0][i] + "</p><br> <p>numero " + (i + 1) + ": " + data[1][i] +
-                                                "</p><br><p>fecha calculada " + (i + 1) + ": " + data[2][i] + "</p><br>");
+                                            var mostrardatos = $("<p>Fecha " + (i + 1) + ": " + data[0][i] + "</p> <p>Numero " + (i + 1) + ": " + data[1][i] +
+                                                "</p><p>Fecha calculada " + (i + 1) + ": " + data[2][i] + "</p><br>");
                                             mostrardatos.appendTo("#resp");
 
                                         }
@@ -191,7 +188,7 @@
                     </fieldset>
 
                     <div class="col-md-6">
-                        <input class="btn1" id="enviar" type="button" value="enviar">
+                        <input class="btn1" id="enviar" type="button" value="enviar" data-toggle="modal" data-target="#myModal">
                     </div>
 
 
@@ -204,12 +201,26 @@
 
     <!-- este section se utilizara para mostrar los resultados -->
     <section>
-        <div id="panel" class="panel panel-success" style="display: none">
-            <div class="panel-heading">Resultados</div>
-            <div class="panel-body">
-                <div id="resp"></div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Resultados</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resp"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </section>
 
     <footer>
