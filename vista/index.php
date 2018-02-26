@@ -48,7 +48,7 @@
                     for (j = 1; j < u; j++) {
 
                         var elementofecha = document.getElementsByName("numero" + j)[0].value;
-
+                            //valida que los numeros no vengan nulos
                         if (elementofecha === '') {
                             $('#panel').hide("slow");
                             envio = 2;
@@ -60,6 +60,7 @@
                             break;
 
                         } else {
+                            //validamos que los numeros no sean menor a 0
                             if (elementofecha <= 0) {
                                 $('#panel').hide("slow");
                                 envio = 2;
